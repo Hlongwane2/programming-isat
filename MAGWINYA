@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+	int first_reading, second_reading, third_reading;
+	
+	//Temerature first reading
+	cout <<"Enter the first temperature reading: \n";
+	cin >> first_reading;
+	
+	//Temperature second reading
+	cout <<"Enter the second temperature reading: \n";
+	cin >> second_reading;
+	
+	//Temperature rating before taking the third temperature
+	int increase = second_reading - first_reading;
+	if  (increase > 50){
+		cout <<"Reduce fryer heat before taking the third reading." << endl;
+		return 0;
+		
+	}
+	else if (increase <10){
+		cout << "Increase fryer heat before taking the third reading." << endl;
+		return 0;
+	}
+	
+	//Temperature third reading
+	cout <<"Enter the third temperature reading: \n";
+	cin >> third_reading;
+	
+	//Calculate total temperature
+    int total_temperature = first_reading + second_reading + third_reading;
+    cout << "Total temperature: " << total_temperature << " degrees" << endl;
+    
+	
+	
+	if (third_reading >= 150 && third_reading <= 190) {
+        cout << "You may start frying the Magwinyas." << endl;
+    } else {
+        cout << "Oil is not ready for frying!" << endl;
+    }
+    
+    return 0;
+}

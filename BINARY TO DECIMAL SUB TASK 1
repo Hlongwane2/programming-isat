@@ -1,0 +1,47 @@
+#include <iostream>
+#include <cmath>
+#include <string>
+using namespace std;
+
+// Decimal to Binary
+string decimalToBinary(int n) {
+    string binary = "";
+    while (n > 0) {
+        binary = to_string(n % 2) + binary;
+        n /= 2;
+    }
+    return binary.empty() ? "0" : binary;
+}
+
+// Binary to Decimal
+int binaryToDecimal(string binary) {
+    int decimal = 0, power = 0;
+    for (int i = binary.length() - 1; i >= 0; i--) {
+        if (binary[i] == '1') {
+            decimal += pow(2, power);
+        }
+        power++;
+    }
+    return decimal;
+}
+
+int main() {
+    int choice, decimal;
+    string binary;
+    
+    cout << "1. Decimal to Binary\n2. Binary to Decimal\nEnter choice: ";
+    cin >> choice;
+    
+    if (choice == 1) {
+        cout << "Enter decimal number: ";
+        cin >> decimal;
+        cout << "Binary: " << decimalToBinary(decimal) << endl;
+    } else if (choice == 2) {
+        cout << "Enter binary number: ";
+        cin >> binary;
+        cout << "Decimal: " << binaryToDecimal(binary) << endl;
+    } else {
+        cout << "Invalid choice!";
+    }
+    return 0;
+}
